@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title></title>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body ng-app="parseApp">
+  <div ng-controller="parseCtrl">
+    <form ng-submit="addBiz()">
+      <select ng-model="biz.Type" ng-change="checkType()" ng-options="type for type in types"></select>
+      <input type="text" ng-model="biz.Name" placeholder="Type the bizzname">
+    </form>
+    <div>
+      <h1>Businesses</h1>
+      <ul>
+        <li ng-repeat="theBiz in biznesses">{{theBiz.name}} {{theBiz.Name}} {{theBiz.Type}}{{theBiz.type}} </li>
+      </ul>
+    </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="app.js"></script>
   <script src="controller.js"></script>
   <script src="service.js"></script>
 </body>
+
 </html>
